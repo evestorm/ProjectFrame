@@ -1,0 +1,17 @@
+//
+//  ProjectBase.pch
+//  ProjectBase
+//
+//  Created by 向云飞 on 16/7/30.
+//  Copyright © 2016年 向云飞. All rights reserved.
+//
+
+#ifndef ProjectBase_pch
+#define ProjectBase_pch
+
+
+#import "Macros.h"
+#import "importFile.h"
+#import "ThirdMacros.h"
+
+#endif /* ProjectBase_pch */
