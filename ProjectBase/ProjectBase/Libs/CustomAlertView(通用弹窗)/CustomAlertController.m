@@ -31,7 +31,7 @@
 }
 
 - (void)launchDialog:(id)sender {
-    CommonAlertView *alertView = [[CommonAlertView alloc] init];
+    CommonAlertView *alertView = [[CommonAlertView alloc] initWithOffsetY:100];
     
     alertView.containerView = [self createDemoView];
     alertView.buttonTitles = @[@"残忍拒绝", @"任性投票"];

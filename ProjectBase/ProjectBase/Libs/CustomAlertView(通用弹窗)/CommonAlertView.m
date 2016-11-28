@@ -13,12 +13,24 @@ const static CGFloat DefaultButtonHeight = 50;
 const static CGFloat CornerRadius = 5.0f;
 const static CGFloat margin = 8;
 
+@interface CommonAlertView ()
+// offsetY
+//@property (nonatomic,strong) CGFloat offsetY;
+@end
+
 @implementation CommonAlertView
 
 CGFloat buttonHeight = 0;
 CGFloat buttonSpacerHeight = 0;
+CGFloat viewOffsetY = 0;
 
 - (instancetype)init {
+    return [self initWithParentView:NULL];
+}
+
+/** 默认弹出框屏幕正中间，offsetY为向上的偏移量*/
+- (instancetype)initWithOffsetY:(CGFloat)offsetY {
+    viewOffsetY = offsetY;
     return [self initWithParentView:NULL];
 }
 
@@ -121,7 +133,9 @@ CGFloat buttonSpacerHeight = 0;
     CGSize dialogSize = [self countDialogSize];
     
     //给弹窗视图中添加UI和底部按钮
-    UIView *dialogContainer = [[UIView alloc] initWithFrame:CGRectMake((screenSize.width - dialogSize.width) * 0.5, (screenSize.height - dialogSize.height) * 0.5, dialogSize.width, dialogSize.height)];
+//    NSLog(@"%f",offsetY);
+    (viewOffsetY == 0) ? viewOffsetY = (screenSize.height - dialogSize.height) * 0.5 : viewOffsetY;
+    UIView *dialogContainer = [[UIView alloc] initWithFrame:CGRectMake((screenSize.width - dialogSize.width) * 0.5,  viewOffsetY , dialogSize.width, dialogSize.height)];
     
     if (self.topCorner) {
         UIRectCorner corner = UIRectCornerTopLeft | UIRectCornerTopRight;

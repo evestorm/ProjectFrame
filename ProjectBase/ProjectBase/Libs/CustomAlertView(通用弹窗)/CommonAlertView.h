@@ -46,6 +46,8 @@
 
 - (instancetype)init;
 
+- (instancetype)initWithOffsetY:(CGFloat)offsetY;
+
 - (instancetype)initWithParentView:(UIView *)parentView;
 
 - (void)show;
