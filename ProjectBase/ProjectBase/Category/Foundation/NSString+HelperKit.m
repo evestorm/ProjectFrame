@@ -212,6 +212,25 @@
     
 }
 
++ (NSMutableAttributedString *)getAttributeFromText:(NSString *)text imageName:(NSString *)imageName imageRect:(CGRect)imageRect imageInFront:(BOOL)imageinfront{
+    NSMutableAttributedString *mutableString = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    NSTextAttachment *attch = [[NSTextAttachment alloc] init];
+    attch.image = [UIImage imageNamed:imageName];
+    attch.bounds = imageRect;
+    
+    NSAttributedString *string = [NSAttributedString attributedStringWithAttachment:attch];
+    
+    
+    if (imageinfront) {
+        [mutableString insertAttributedString:string atIndex:0];
+    } else {
+        [mutableString appendAttributedString:string];
+    }
+    
+    return mutableString;
+}
+
 
 #pragma mark - string data 互转
 /**

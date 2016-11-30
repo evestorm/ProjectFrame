@@ -123,7 +123,17 @@
  */
 + (NSMutableAttributedString *)getAttributeFromTexts:(NSArray *)texts pendingCharacters:(NSArray *)pendingCharacters pendingColors:(NSArray *)colors pendingFont:(NSArray *)fonts;
 
-
+/**
+ *  图文混排:文字+图片
+ *
+ *  @param texts             待修改字符串数组
+ *  @param pendingCharacters 待修改属性的字符串数组
+ *  @param colors            待修改属性的字符串颜色数组
+ *  @param fonts             待修改属性的字符串字体数组
+ *
+ *  @return 返回修改之后的字符串
+ */
++ (NSMutableAttributedString *)getAttributeFromText:(NSString *)text imageName:(NSString *)imageName imageRect:(CGRect)imageRect imageInFront:(BOOL)imageinfront;
 
 
 #pragma mark - string data 互转
